@@ -9,4 +9,9 @@ class Reminder extends Model
 {
     /** @use HasFactory<\Database\Factories\ReminderFactory> */
     use HasFactory;
+
+    public function subscription()
+    {
+        return $this->belongsTo(Subscription::class);
+    }
 }

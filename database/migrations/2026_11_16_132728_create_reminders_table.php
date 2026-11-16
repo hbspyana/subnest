@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('reminders', function (Blueprint $table) {
             $table->id();
+
+            $table->foreignId('subscription_id')
+                ->constrained()
+                ->cascadeOnDelete();
+
+            $table->date('reminder_date');
+            $table->string('message');
+            $table->boolean('is_read')->default(false);
+
             $table->timestamps();
         });
     }

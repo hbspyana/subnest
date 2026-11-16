@@ -9,4 +9,9 @@ class Payment extends Model
 {
     /** @use HasFactory<\Database\Factories\PaymentFactory> */
     use HasFactory;
+
+    public function subscription()
+    {
+        return $this->belongsTo(Subscription::class);
+    }
 }
