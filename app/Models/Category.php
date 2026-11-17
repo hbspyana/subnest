@@ -19,4 +19,10 @@ class Category extends Model
     {
         return $this->hasMany(Subscription::class);
     }
+
+    protected $fillable = [
+        'user_id',
+        'name',
+        'description',
+    ];
 }

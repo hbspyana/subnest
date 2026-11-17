@@ -14,4 +14,11 @@ class Reminder extends Model
     {
         return $this->belongsTo(Subscription::class);
     }
+
+    protected $fillable = [
+        'subscription_id',
+        'reminder_date',
+        'message',
+        'is_read',
+    ];
 }

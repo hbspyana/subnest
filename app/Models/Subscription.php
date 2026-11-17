@@ -28,4 +28,16 @@ class Subscription extends Model
     {
         return $this->hasMany(Reminder::class);
     }
+
+    protected $fillable = [
+        'user_id',
+        'category_id',
+        'name',
+        'description',
+        'price',
+        'billing_cycle',
+        'start_date',
+        'next_payment_date',
+        'status',
+    ];
 }

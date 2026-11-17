@@ -14,4 +14,11 @@ class Payment extends Model
     {
         return $this->belongsTo(Subscription::class);
     }
+
+    protected $fillable = [
+        'subscription_id',
+        'amount',
+        'payment_date',
+        'status',
+    ];
 }
