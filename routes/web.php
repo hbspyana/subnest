@@ -4,6 +4,7 @@ use App\Http\Controllers\Userzone\DashboardController;
 use App\Http\Controllers\Userzone\ProfileController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Userzone\CategoryController;
 
 /*
  * Public Website routes
@@ -26,6 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
     // Todo: add your Userzone routes here
+    Route::resource('categories', CategoryController::class);
 
     // For the user's profile management
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
