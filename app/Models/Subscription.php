@@ -33,6 +33,7 @@ class Subscription extends Model
         'user_id',
         'category_id',
         'name',
+        'logo_url',
         'description',
         'price',
         'billing_cycle',
