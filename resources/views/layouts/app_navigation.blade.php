@@ -22,6 +22,12 @@
             Dashboard
         </a>
 
+        <a href="{{ route('subscriptions.index') }}"
+           class="flex items-center px-3 py-3 rounded-lg mb-2
+           {{ request()->routeIs('subscriptions.*') ? 'bg-purple-600 text-white' : 'text-slate-400 hover:bg-slate-800 hover:text-white' }}">
+            Subscriptions
+        </a>
+        
         @if (Route::has('categories.index'))
             <a href="{{ route('categories.index') }}"
                class="flex items-center px-3 py-3 rounded-lg mb-2

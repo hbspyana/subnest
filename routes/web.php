@@ -25,7 +25,9 @@ require __DIR__.'/auth.php';
  */
 Route::middleware('auth')->group(function () {
     // For the user's dashboard (after login)
-    Route::get('/dashboard', DashboardController::class)->name('dashboard');
+    Route::get('/dashboard', DashboardController::class)
+        ->middleware(['auth', 'verified'])
+        ->name('dashboard');
 
     // Todo: add your Userzone routes here
     Route::resource('categories', CategoryController::class);
@@ -39,4 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/subscriptions', [SubscriptionController::class, 'index'])->name('subscriptions.index');
     Route::get('/subscriptions/create', [SubscriptionController::class, 'create'])->name('subscriptions.create');
     Route::post('/subscriptions', [SubscriptionController::class, 'store'])->name('subscriptions.store');
-});
+    Route::get('/subscriptions/{subscription}/edit', [SubscriptionController::class, 'edit'])->name('subscriptions.edit');
+    Route::put('/subscriptions/{subscription}', [SubscriptionController::class, 'update'])->name('subscriptions.update');
+    Route::delete('/subscriptions/{subscription}', [SubscriptionController::class, 'destroy'])->name('subscriptions.destroy');
+    });
