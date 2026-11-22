@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Userzone\CategoryController;
 use App\Http\Controllers\Userzone\DashboardController;
+use App\Http\Controllers\Userzone\PaymentController;
 use App\Http\Controllers\Userzone\ProfileController;
 use App\Http\Controllers\Userzone\SubscriptionController;
 use App\Http\Controllers\WelcomeController;
@@ -44,4 +45,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/subscriptions/{subscription}/edit', [SubscriptionController::class, 'edit'])->name('subscriptions.edit');
     Route::put('/subscriptions/{subscription}', [SubscriptionController::class, 'update'])->name('subscriptions.update');
     Route::delete('/subscriptions/{subscription}', [SubscriptionController::class, 'destroy'])->name('subscriptions.destroy');
+
+    // For the user's payments management
+    Route::get('/payments', [PaymentController::class, 'index'])->name('payments.index');
+    Route::get('/subscriptions/{subscription}/payments/create', [PaymentController::class, 'create'])->name('payments.create');
+    Route::post('/subscriptions/{subscription}/payments', [PaymentController::class, 'store'])->name('payments.store');
+    Route::patch('/payments/{payment}/status', [PaymentController::class, 'updateStatus'])->name('payments.updateStatus');
+    Route::delete('/payments/{payment}', [PaymentController::class, 'destroy'])->name('payments.destroy');
     });
