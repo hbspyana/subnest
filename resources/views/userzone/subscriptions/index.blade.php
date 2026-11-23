@@ -20,6 +20,11 @@
                     Payment History
                 </a>
 
+                <a href="{{ route('reminders.index') }}"
+                    class="inline-flex items-center justify-center px-5 py-3 rounded-lg bg-slate-800 text-white hover:bg-slate-700 transition">
+                    Reminders
+                </a>
+
                 <a href="{{ route('subscriptions.create') }}"
                     class="inline-flex items-center justify-center px-5 py-3 rounded-lg bg-purple-600 text-white hover:bg-purple-500 transition">
                     + Add Subscription
@@ -134,11 +139,18 @@
 
                         </div>
 
-                        <div class="mt-5">
+                        <div class="mt-5 space-y-3">
+
                             <a href="{{ route('payments.create', $subscription) }}"
                                 class="block w-full text-center px-4 py-2.5 rounded-lg bg-purple-600/10 text-purple-400 hover:bg-purple-600/20 border border-purple-500/20 transition">
                                 + Record Payment
                             </a>
+
+                            <a href="{{ route('reminders.create', $subscription) }}"
+                                class="block w-full text-center px-4 py-2.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 transition">
+                                + Add Reminder
+                            </a>
+
                         </div>
 
                         <div class="flex gap-3 mt-4 pt-4 border-t border-slate-800">

@@ -4,6 +4,7 @@ use App\Http\Controllers\Userzone\CategoryController;
 use App\Http\Controllers\Userzone\DashboardController;
 use App\Http\Controllers\Userzone\PaymentController;
 use App\Http\Controllers\Userzone\ProfileController;
+use App\Http\Controllers\Userzone\ReminderController;
 use App\Http\Controllers\Userzone\SubscriptionController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
@@ -52,4 +53,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/subscriptions/{subscription}/payments', [PaymentController::class, 'store'])->name('payments.store');
     Route::patch('/payments/{payment}/status', [PaymentController::class, 'updateStatus'])->name('payments.updateStatus');
     Route::delete('/payments/{payment}', [PaymentController::class, 'destroy'])->name('payments.destroy');
+
+    Route::get('/reminders', [ReminderController::class, 'index'])->name('reminders.index');
+    Route::get('/subscriptions/{subscription}/reminders/create', [ReminderController::class, 'create'])->name('reminders.create');
+    Route::post('/subscriptions/{subscription}/reminders', [ReminderController::class, 'store'])->name('reminders.store');
+    Route::patch('/reminders/{reminder}/read', [ReminderController::class, 'updateRead'])->name('reminders.updateRead');
+    Route::delete('/reminders/{reminder}', [ReminderController::class, 'destroy'])->name('reminders.destroy');
     });
