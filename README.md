@@ -140,7 +140,7 @@ php artisan migrate:fresh --seed
 
 If the database seeder creates the required administrator account, the credentials are:
 
-- Email: `admin@admin.com`
+- Email: `admin@example.com`
 - Password: `password`
 
 ## Project Purpose
